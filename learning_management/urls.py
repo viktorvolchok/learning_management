@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
 
+from learning_management.views import session_auth
 from lm.viewsets import SubjectViewSet, StudentViewSet
 
 router = routers.DefaultRouter()
@@ -26,5 +28,7 @@ router.register('students', StudentViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    # path('api/token-auth', obtain_auth_token),
+    # path('api/session-auth', session_auth),
 ]
