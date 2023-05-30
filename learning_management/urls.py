@@ -20,11 +20,12 @@ from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 
 from learning_management.views import session_auth
-from lm.viewsets import SubjectViewSet, StudentViewSet
+from lm.viewsets import SubjectViewSet, StudentViewSet, NotificationViewSet
 
 router = routers.DefaultRouter()
 router.register('lm', SubjectViewSet)
 router.register('students', StudentViewSet)
+router.register('notification', NotificationViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

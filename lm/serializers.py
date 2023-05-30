@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from lm.models import Subject, Student, Teacher
+from lm.models import Subject, Student, Teacher, Notification
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -22,3 +22,9 @@ class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
         fields = ("id", "name", "students", "teacher")
+
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notification
+        fields = ("subject", "message")
